@@ -1,0 +1,83 @@
+/* MovieCard.css */
+.movie-card .card-image {
+    width: 100%;
+    height: 350px;
+}
+.movie-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+    border: none;
+  }
+  
+  .movie-card:hover {
+    // transform: scale(1.05);
+  }
+  
+  .movie-card .card-image {
+    transition: transform 0.3s;
+  }
+  
+  .movie-card:hover .card-image {
+    transform: scale(1.2);
+  }
+  
+  .movie-card .card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    color: #fff;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+  }
+  
+  .movie-card:hover .card-body {
+    transform: translateY(0);
+  }
+
+  .movie-card .card-body-show{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    color: #fff;
+  }
+
+  // .movie-card:hover .card-body-show{
+  //   display: none;
+  // }
+  
+  .movie-card .play-button {
+    margin-top: 10px;
+  }
+  
+  .movie-card .overlay {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.movie-card:hover .overlay {
+    opacity: 1;
+}
+
+.movie-card .overlay i {
+  font-size: 6rem;
+}
