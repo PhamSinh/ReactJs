@@ -12,6 +12,8 @@ function HeroSlide() {
   const trendingMovives = useSelector(
     (state: RootState) => state.movies.trendingMovives
   );
+  console.log(trendingMovives);
+
   return (
     <>
       <Carousel>
@@ -46,7 +48,7 @@ function HeroSlide() {
                     {item.overview}
                   </div>
                   <div className="item-action top-down delay-8">
-                    <MovieButton label="Watch more..." onClick={() => {navigate(`/detail/${item.id}`)}} />
+                    <MovieButton label="Watch more..." onClick={() => { navigate(`/detail/${item.id}`) }} />
                   </div>
                 </div>
               </div>

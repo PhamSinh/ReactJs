@@ -1,80 +1,60 @@
-/* Footer Section */
+// Footer.scss
 
-footer.section{
-    margin-top: 50px;
-    padding-bottom: 80px;
-    position: relative;
-    background-color: var(--body-bg);
-  }
-  
-  footer a:hover {
-    color: var(--main-color);
-  }
-  
-  footer a.logo:hover {
-    color:unset;
-  }
-  
-  footer a.logo {
-    margin-top: -2.5rem;
-    display: block;
-  }
-  
-  .social-list {
-    display:flex;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .social-item {
-    --size: 30px;
-    height: var(--size);
-    width: var(--size);
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background-color: var(--text-color);
-    color: var(--main-color);
-  }
-  
-  .social-item:hover {
-    background-color: var(--main-color);
-    color: var(--text-color);
-  }
-  
-  .social-item ~ .social-item {
-    margin-left: 20px;
-  }
-  
-  footer .content {
-    margin-top: 20px;
-  }
-  
-  .content-footer-title{
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-  }
-  
-  .footer-menu{
-    list-style-type: none;
-  }
-  
-  .footer-menu a {
-    display: inline-block;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .footer-menu a:hover {
-    transform: translateX(5px);
-  }
-  
-  /* End Footer Section */
+.movie-footer {
+  background-color: #222;
+  color: #fff;
+  padding: 30px 0;
+}
 
-  /* Copyright section */
+.footer-content {
+  max-width: 1600px;
+  padding: 0 40px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-column {
+  flex: 1;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.column-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.footer-links,
+.social-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li,
+.social-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a,
+.social-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  display: block;
+}
+
+.footer-links a:hover,
+.social-link:hover {
+  color: #d91a2a;
+}
+
 .copyright {
-    padding: 10px;
-    border-top: 1px solid var(--body-bg);
-    background-color: var(--box-bg);
-    text-align:center;
-  }
-  /* End Copyright section */
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}

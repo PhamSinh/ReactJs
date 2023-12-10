@@ -36,7 +36,7 @@
     "video": "https://www.youtube.com/embed/bLvqoHBptjg",
     "vote": 4,
     "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, necessitatibus quam, minima minus aperiam ex fugiat cumque et ipsa repudiandae eligendi repellat quia modi quidem doloremque id sit. Asperiores, nemo.",
-    "isTrending": false,
+    "isTrending": true,
     "price": 120,
     "time": 120,
     "actors": [
@@ -65,7 +65,7 @@
     "video": "https://www.youtube.com/embed/bLvqoHBptjg",
     "vote": 4,
     "overview": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, necessitatibus quam, minima minus aperiam ex fugiat cumque et ipsa repudiandae eligendi repellat quia modi quidem doloremque id sit. Asperiores, nemo.",
-    "isTrending": false,
+    "isTrending": true,
     "price": 120,
     "time": 120,
     "actors": [
