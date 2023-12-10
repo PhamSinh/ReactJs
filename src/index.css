@@ -351,6 +351,7 @@ a.movie-item:hover {
   }
 
   .item-content-wrapper{
+      max-height: 800px;
       width: 50%;
   }
 

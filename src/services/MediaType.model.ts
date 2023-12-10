@@ -12,20 +12,21 @@ export interface MovieDetailState {
 }
 
 export interface MediaItemType {
-  id: string;
-  title: string;
-  release_date: string;
-  poster: string;
-  video: string;
-  vote: number;
+  adult: boolean;
+  backdrop_path: string;
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
   overview: string;
-  isTrending: boolean;
-  price: number;
-  time: number;
-  actors: Array<ActorModel>;
-  category: Array<string>;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 }
-
 export interface ActorModel {
   id: string;
   name: string;

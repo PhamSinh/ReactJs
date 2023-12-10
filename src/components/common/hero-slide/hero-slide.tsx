@@ -1,4 +1,3 @@
-import { Image } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
@@ -6,14 +5,33 @@ import "./hero-slide.scss";
 import MovieStar from "../movie-star/movie-star";
 import MovieButton from "../button/button";
 import { useNavigate } from "react-router-dom";
-
+import {
+  ImageWrapper,
+  Image,
+} from "../movie-card/styled";
 function HeroSlide() {
   const navigate = useNavigate();
   const trendingMovives = useSelector(
     (state: RootState) => state.movies.trendingMovives
   );
-  console.log(trendingMovives);
 
+  const posterSizes = [
+    "w92",
+    "w154",
+    "w185",
+    "w342",
+    "w500",
+    "w780",
+    "original"
+  ];
+  const posterSizesArray = [
+    posterSizes[1],
+    posterSizes[3],
+    posterSizes[3],
+    posterSizes[3],
+    posterSizes[4]
+  ];
+  const baseUrl = "https://image.tmdb.org/t/p/";
   return (
     <>
       <Carousel>
@@ -22,7 +40,14 @@ function HeroSlide() {
         ) : (
           trendingMovives.slice(0, 3).map((item) => (
             <Carousel.Item key={item.id} className="hero-slide-item">
-              <Image src={item.poster} fluid />
+              <ImageWrapper>
+                <Image
+                  sizes={posterSizesArray}
+                  baseUrl={baseUrl}
+                  path={item.poster_path}
+                  alt="image"
+                />
+              </ImageWrapper>
               {/* <Carousel.Caption > */}
               <div className="hero-slide-item-content">
                 <div className="item-content-wrapper">
