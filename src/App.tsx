@@ -22,7 +22,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/detail/:id" element={<DetailScreen />} />
+          <Route path="/movie/:id" element={<DetailScreen />} />
           <Route path="/list-movie" element={<ListMovie />} />
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<HomePage />} />

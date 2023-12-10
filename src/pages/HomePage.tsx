@@ -5,8 +5,6 @@ import MovieSeries from "../components/Layout/Movie-Series/movie-series";
 import RecommendMovies from "../components/Layout/recommend-movies/recommend-movies";
 
 const HomePage: React.FC = () => {
-//   const movieState = useSelector((state: RootState) => state.movies);
-  // const tvState = useSelector((state: RootState) => state.tv);
   return (
     <>
       <Container>
