@@ -4,6 +4,10 @@ import { Wrapper } from "../Wrapper";
 import MovieCard from "../movie-card/movie-card";
 import { Backdrop } from "./Backdrop";
 import { getMovieDetail } from '../../../services/fetchMedia';
+import MovieButton from "../button/button";
+import { useDispatch } from "react-redux";
+import "./styleDetail.scss";
+import { movieDetailAction } from "../../../store/movie-detail-slice";
 
 
 export const MovieDetail = () => {
@@ -49,7 +53,11 @@ export const MovieDetail = () => {
 
   const tileWidths = ["100%", "100%", "100%", "100%", "100%"];
   const movieDetails = getMovieDetail(id);
+  const SetIsCheckout = (input: boolean) => {
+    console.log(input);
+  }
 
+  const dispatch = useDispatch();
   return (
     <>
       {movieDetails && backdropSizesArray && movieDetails.backdrop_path !== null && (
@@ -88,6 +96,22 @@ export const MovieDetail = () => {
             votes={movieDetails.vote_count}
             overview={movieDetails.overview}
           />
+          <div className="wrapper-buy">
+            <div className="mt-1 item-action">
+              <MovieButton
+                label="Watch trailer"
+                onClick={() => {
+                  dispatch(movieDetailAction.setShow(true));
+                }}
+              />
+
+              <MovieButton
+                icon={<i className="bx bx-cart"></i>}
+                label="Buy Now"
+                onClick={() => SetIsCheckout(true)}
+              />
+            </div>
+          </div>
         </Wrapper >
       )}
     </>
