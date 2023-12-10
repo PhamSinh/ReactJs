@@ -24,7 +24,6 @@ const DetailScreen = () => {
     return (
         <>
             <Container>
-                <h1>Sinh</h1>
                 <MovieModal />
                 <NotifyModal isSuccess={isSuccess} SetIsSuccess={SetIsSuccess} />
                 <CheckOutModal isCheckout={isCheckout} SetIsCheckout={SetIsCheckout} SetIsSuccess={SetIsSuccess} />

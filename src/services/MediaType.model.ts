@@ -7,6 +7,7 @@ export interface MediaState {
 
 export interface MovieDetailState {
   isShow: boolean;
+  isShowPay: Boolean;
   movieDetail: MediaItemType;
   actors: Array<ActorModel>
 }

@@ -1,9 +1,10 @@
 import { Card, Modal } from "react-bootstrap";
 import "./checkout-modal.scss";
-import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import MovieStar from "../../common/movie-star/movie-star";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from 'react-redux';
+import { movieDetailAction } from '../../../store/movie-detail-slice';
 
 interface CheckOutModalProps {
   isCheckout: boolean;
@@ -12,7 +13,6 @@ interface CheckOutModalProps {
 }
 
 const CheckOutModal: React.FC<CheckOutModalProps> = ({
-  isCheckout,
   SetIsCheckout,
   SetIsSuccess,
 }) => {
@@ -20,6 +20,12 @@ const CheckOutModal: React.FC<CheckOutModalProps> = ({
     SetIsCheckout(false);
     setTimeout(() => SetIsSuccess(true), 500);
   };
+
+  const close = () => {
+    SetIsCheckout(false);
+  }
+  const dispatch = useDispatch();
+  const { isShowPay } = useSelector((store: RootState) => store.detail);
   return (
     <>
       <Modal
@@ -27,7 +33,7 @@ const CheckOutModal: React.FC<CheckOutModalProps> = ({
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
-        show={isCheckout}
+        show={isShowPay}
         onHide={() => SetIsCheckout(false)}
       >
         <div className="app-container">
@@ -41,7 +47,7 @@ const CheckOutModal: React.FC<CheckOutModalProps> = ({
                 type="button"
                 className="btn-close position-absolute bg-secondary-subtle"
                 aria-label="Close"
-                onClick={() => SetIsCheckout(false)}
+                onClick={() => close}
               ></button>
               <Checkout checkoutDone={checkoutDone} />
             </div>
@@ -160,9 +166,9 @@ const Checkout: React.FC<CheckoutProps> = ({ checkoutDone }) => {
             )}
           </div>
           <div className="position-absolute mb-3 w-100 d-flex bottom-0 start-0 justify-content-center">
-          <button className="checkout-btn m-0" type="submit">
-            Place order
-          </button>
+            <button className="checkout-btn m-0" type="submit">
+              Place order
+            </button>
           </div>
         </div>
       </form>

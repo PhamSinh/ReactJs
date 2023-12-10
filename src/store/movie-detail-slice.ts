@@ -23,13 +23,16 @@ const movieDetailSlice = createSlice({
   initialState: initialMovieDetailState,
   reducers: {
     setMovieDetail: (state, action) => {
-      state.movieDetail = {...action.payload};
+      state.movieDetail = { ...action.payload };
     },
     setActors: (state, action) => {
       state.actors = action.payload;
     },
     setShow: (state, action) => {
       state.isShow = action.payload;
+    },
+    setShowPay: (state, action) => {
+      state.isShowPay = action.payload;
     },
   },
 });

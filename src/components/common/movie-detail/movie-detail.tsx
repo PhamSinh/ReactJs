@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import "./styleDetail.scss";
 import { movieDetailAction } from "../../../store/movie-detail-slice";
 
-
 export const MovieDetail = () => {
   const { id }: any = useParams();
 
@@ -108,7 +107,7 @@ export const MovieDetail = () => {
               <MovieButton
                 icon={<i className="bx bx-cart"></i>}
                 label="Buy Now"
-                onClick={() => SetIsCheckout(true)}
+                onClick={() => dispatch(movieDetailAction.setShowPay(true))}
               />
             </div>
           </div>
