@@ -11,9 +11,11 @@ import { movieDetailAction } from "../../../store/movie-detail-slice";
 
 export const MovieDetail = () => {
   const { id }: any = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    dispatch(movieDetailAction.setShowPay(false));
     // eslint-disable-next-line
   }, []);
 
@@ -56,7 +58,6 @@ export const MovieDetail = () => {
     console.log(input);
   }
 
-  const dispatch = useDispatch();
   return (
     <>
       {movieDetails && backdropSizesArray && movieDetails.backdrop_path !== null && (

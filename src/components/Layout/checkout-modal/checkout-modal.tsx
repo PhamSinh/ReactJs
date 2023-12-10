@@ -16,15 +16,16 @@ const CheckOutModal: React.FC<CheckOutModalProps> = ({
   SetIsCheckout,
   SetIsSuccess,
 }) => {
+  const dispatch = useDispatch();
   const checkoutDone = () => {
     SetIsCheckout(false);
+    dispatch(movieDetailAction.setShowPay(false));
     setTimeout(() => SetIsSuccess(true), 500);
   };
 
   const close = () => {
     SetIsCheckout(false);
   }
-  const dispatch = useDispatch();
   const { isShowPay } = useSelector((store: RootState) => store.detail);
   return (
     <>
