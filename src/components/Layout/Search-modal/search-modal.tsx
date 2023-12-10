@@ -17,7 +17,7 @@ interface SearchModalProps {
 }
 
 const SearchModal: React.FC<SearchModalProps> = ({ isSearch, setIsSearch }) => {
-  
+
   const movieList = useSelector((state: RootState) => state.movies.movieList);
   const [searchValue, setSearchValue] = useState("");
   const [searchResult, setSearchResult] = useState<MediaItemType[]>([]);
@@ -30,7 +30,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isSearch, setIsSearch }) => {
   }
 
   const clickItemHandle = (id: string) => {
-    navigate("/detail/"+id);
+    navigate("/movie/" + id);
     handleClose();
   }
 
@@ -40,9 +40,10 @@ const SearchModal: React.FC<SearchModalProps> = ({ isSearch, setIsSearch }) => {
   }
 
   const Search = debounce((searchValue: string) => {
+    console.log(searchValue.toLowerCase());
     const searchResultData = movieList.filter(movie => (
       (searchValue != "") && movie.title.toLowerCase().includes(searchValue.toLowerCase())
-      ));
+    ));
     setSearchResult(searchResultData);
   }, 500);
 
@@ -73,27 +74,27 @@ const SearchModal: React.FC<SearchModalProps> = ({ isSearch, setIsSearch }) => {
         </Modal.Header>
         <Modal.Body className="">
           {!searchValue ? "No Recent Search" :
-          <ul className="list-unstyled search-results ">
-          {searchResult.length == 0 ? "No results found" : 
-            searchResult.map(item => (
-              <li key={item.id}>
-                <div className="search-result-item" onClick={() => clickItemHandle(item.id)}>
-                  <div className="search-result-item-icon">
-                    <i className="bx bx-movie-play bx-tada fs-2"></i>
-                  </div>
-                  <div className="search-result-item-name">
-                    <p className="search-result-item-title fs-2"> {item.title}</p>
-                  </div>
-                  <div className="search-result-item-action">
-                    <i className="bx bx-chevrons-right bx-fade-right fs-2"></i>
-                  </div>
-                </div>
-            </li>
-            ))}
-            
-          </ul> 
+            <ul className="list-unstyled search-results ">
+              {searchResult.length == 0 ? "No results found" :
+                searchResult.map(item => (
+                  <li key={item.id}>
+                    <div className="search-result-item" onClick={() => clickItemHandle(item.id)}>
+                      <div className="search-result-item-icon">
+                        <i className="bx bx-movie-play bx-tada fs-2"></i>
+                      </div>
+                      <div className="search-result-item-name">
+                        <p className="search-result-item-title fs-2"> {item.title}</p>
+                      </div>
+                      <div className="search-result-item-action">
+                        <i className="bx bx-chevrons-right bx-fade-right fs-2"></i>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+
+            </ul>
           }
-          
+
         </Modal.Body>
       </Modal>
     </>

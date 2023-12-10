@@ -24,6 +24,7 @@ export default Section;
 const SectionInnerContainer = styled.div<{ isObsolete: boolean }>`
     display: flex;
     flex-wrap: wrap;
+    padding: 20px 0;
     justify-content: center;
     filter: ${({ isObsolete }) => isObsolete ? 'brightness(0.9)' : 'none'};
     gap: 24px;

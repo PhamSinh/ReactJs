@@ -16,9 +16,9 @@ function Header() {
               <span className="main-color">e</span>o
             </Link>
             <div className="nav-menu" id="nav-menu">
-            <Button variant="outline-danger mt-2 mb-2 fs-6 rounded-pill text-light-emphasis" onClick={() => setIsSearch(true)}>
-              <i className="bx bx-search text-light"></i> Search Movie
-            </Button>
+              <Button variant="outline-danger mt-2 mb-2 fs-6 rounded-pill text-light-emphasis" onClick={() => setIsSearch(true)}>
+                <i className="bx bx-search text-light"></i> Search Movie
+              </Button>
             </div>
 
             <SearchModal isSearch={isSearch} setIsSearch={setIsSearch} />

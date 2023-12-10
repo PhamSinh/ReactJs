@@ -20,10 +20,11 @@ const movieSlice = createSlice({
       state.trendingMovives = action.payload;
     },
     setFilterMovies: (state, action) => {
-      const { star, year } = action.payload;
+      const { star, year, type } = action.payload;
       let result: MediaItemType[] = [...state.movieList];
-      if (star) result = result.filter(movie => movie.vote == Number(star));
-      if (year) result = result.filter(movie => Number(new Date(movie.release_date).getFullYear()) == Number(year));
+      if (star) result = result.filter(movie => +movie.vote_average.toFixed(0) == Number(star));
+      if (year) result = result.filter(movie => Number(movie.release_date.slice(0, 4)) == Number(year));
+      if (type) result = result.filter(movie => (movie.genre_ids || []).includes(+type));
 
       state.filterMovies = [...result];
     },
