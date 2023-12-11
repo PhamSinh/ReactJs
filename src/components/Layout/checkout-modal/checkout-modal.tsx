@@ -1,4 +1,4 @@
-import { Card, Modal } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import "./checkout-modal.scss";
 import { RootState } from "../../../store";
 import MovieStar from "../../common/movie-star/movie-star";
@@ -7,85 +7,69 @@ import { useDispatch, useSelector } from 'react-redux';
 import { movieDetailAction } from '../../../store/movie-detail-slice';
 
 interface CheckOutModalProps {
+  detailData: Object;
   isCheckout: boolean;
   SetIsCheckout: (value: boolean) => void;
   SetIsSuccess: (value: boolean) => void;
 }
-
+let data = {};
 const CheckOutModal: React.FC<CheckOutModalProps> = ({
+  detailData,
   SetIsCheckout,
   SetIsSuccess,
 }) => {
   const dispatch = useDispatch();
   const checkoutDone = () => {
     SetIsCheckout(false);
-    dispatch(movieDetailAction.setShowPay(false));
+    dispatch(movieDetailAction.setShowPay(true));
+    dispatch(movieDetailAction.setShowPay(true));
+    dispatch(movieDetailAction.setClose(true));
     setTimeout(() => SetIsSuccess(true), 500);
   };
-
+  data = detailData;
   const close = () => {
     SetIsCheckout(false);
   }
-  const { isShowPay } = useSelector((store: RootState) => store.detail);
   return (
     <>
-      <Modal
-        id="checkout-form"
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        show={isShowPay}
-        onHide={() => SetIsCheckout(false)}
-      >
-        <div className="app-container">
-          <div className="row">
-            <div className="col">
-              {/* <Item name="Instax Mini 90 Neo Classic" price="$144.99" img="http://ecx.images-amazon.com/images/I/61%2BABMMN5zL._SL1500_.jpg" /> */}
-              <CheckoutCard />
-            </div>
-            <div className="col no-gutters position-relative">
-              <button
-                type="button"
-                className="btn-close position-absolute bg-secondary-subtle"
-                aria-label="Close"
-                onClick={() => close}
-              ></button>
-              <Checkout checkoutDone={checkoutDone} />
-            </div>
-          </div>
+      <div className="row">
+        <div className="col">
+          {/* <Item name="Instax Mini 90 Neo Classic" price="$144.99" img="http://ecx.images-amazon.com/images/I/61%2BABMMN5zL._SL1500_.jpg" /> */}
+          <CheckoutCard />
         </div>
-      </Modal>
+        <div className="col no-gutters position-relative">
+          <button
+            type="button"
+            className="btn-close position-absolute bg-secondary-subtle"
+            aria-label="Close"
+            onClick={() => close}
+          ></button>
+          <Checkout checkoutDone={checkoutDone} />
+        </div>
+      </div>
     </>
   );
 };
 
 const CheckoutCard = () => {
-  const movie = useSelector((state: RootState) => state.detail.movieDetail);
+  const movie = data;
+
   return (
     <Card style={{ width: "100%" }} className="bg-dark text-light">
-      <Card.Img variant="top" src={movie.poster} />
       <Card.Body>
         <Card.Title>
-          <span className="fs-1">{movie.title}</span>
+          <span className="fs-1">{movie.title} - {movie.original_title}</span>
         </Card.Title>
         <Card.Text>
           <div className="text-warning">
-            <MovieStar star={movie.vote} />
+            <MovieStar star={movie.vote_average} />
           </div>
           <div className="text-light">
-            <i className="bx bxs-time"></i> {movie.time} minutes
-          </div>
-          <div className="text-light">
-            <i className="bx bxs-movie"></i>{" "}
-            {new Date(movie.release_date).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            <i className="bx bxs-time"></i> {movie.vote_count} minutes
           </div>
 
           <div className="text-warning mt-3">
-            <span className="fs-1 fw-bold">$ {movie.price}</span>
+            <span className="fs-1 fw-bold">$ {movie.vote_count}</span>
           </div>
         </Card.Text>
       </Card.Body>

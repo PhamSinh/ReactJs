@@ -5,7 +5,7 @@ import { movieDetailAction } from '../../../store/movie-detail-slice';
 
 const MovieModal: React.FC = () => {
 
-  const { isShow, movieDetail } = useSelector((store: RootState) => store.detail);
+  const { isShow } = useSelector((store: RootState) => store.detail);
   const dispatch = useDispatch();
   return (
     <>
@@ -24,6 +24,8 @@ const MovieModal: React.FC = () => {
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
+            height="500px"
+            width="100%"
           ></iframe>
         </Modal.Body>
       </Modal>

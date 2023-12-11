@@ -34,6 +34,9 @@ const movieDetailSlice = createSlice({
     setShowPay: (state, action) => {
       state.isShowPay = action.payload;
     },
+    setClose: (state, action) => {
+      state.isClosed = action.payload;
+    },
   },
 });
 

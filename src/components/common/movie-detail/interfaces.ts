@@ -1,8 +1,3 @@
-export interface Genre {
-  id: number;
-  name: string;
-};
-
 export interface Company {
   id: number;
   logo_path: string | null,
@@ -26,7 +21,6 @@ export interface MovieDetails {
   backdrop_path: string;
   belongs_to_collection: null;
   budget: number;
-  genres: Genre[];
   homepage: string;
   id: number;
   imdb_id: string;

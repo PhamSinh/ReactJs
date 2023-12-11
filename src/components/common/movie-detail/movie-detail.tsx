@@ -1,23 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Wrapper } from "../Wrapper";
 import MovieCard from "../movie-card/movie-card";
 import { Backdrop } from "./Backdrop";
 import { getMovieDetail } from '../../../services/fetchMedia';
 import MovieButton from "../button/button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./styleDetail.scss";
 import { movieDetailAction } from "../../../store/movie-detail-slice";
+import CheckOutModal from '../../../components/Layout/checkout-modal/checkout-modal';
+import { RootState } from '../../../store';
+import NotifyModal from '../../common/notify-modal/notify-modal';
 
 export const MovieDetail = () => {
   const { id }: any = useParams();
   const dispatch = useDispatch();
+  let [model, showUp] = useState(false);
+  let { isShowPay, isClosed } = useSelector((store: RootState) => store.detail);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    dispatch(movieDetailAction.setClose(false));
     dispatch(movieDetailAction.setShowPay(false));
-    // eslint-disable-next-line
   }, []);
+
+  const [isCheckout, SetIsCheckout] = useState(false);
+  const [isSuccess, SetIsSuccess] = useState(false);
 
   const baseUrl = "https://image.tmdb.org/t/p/";
   const posterSizes = [
@@ -54,9 +63,6 @@ export const MovieDetail = () => {
 
   const tileWidths = ["100%", "100%", "100%", "100%", "100%"];
   const movieDetails = getMovieDetail(id);
-  const SetIsCheckout = (input: boolean) => {
-    console.log(input);
-  }
 
   return (
     <>
@@ -89,9 +95,7 @@ export const MovieDetail = () => {
               movieDetails.release_date &&
               new Date(Date.parse(movieDetails.release_date)).getFullYear().toString()
             }
-            countries={movieDetails.production_countries}
             releaseDate={movieDetails.release_date}
-            genresList={movieDetails.genres}
             rating={movieDetails.vote_average}
             votes={movieDetails.vote_count}
             overview={movieDetails.overview}
@@ -105,13 +109,28 @@ export const MovieDetail = () => {
                 }}
               />
 
-              <MovieButton
+              {!isClosed && (<MovieButton
                 icon={<i className="bx bx-cart"></i>}
                 label="Buy Now"
-                onClick={() => dispatch(movieDetailAction.setShowPay(true))}
-              />
+                onClick={() => showUp((v) => !v)}
+              />)}
+
+              {isClosed && (<MovieButton
+                icon={<i className="bx bx-cart"></i>}
+                label="Watch Now"
+                onClick={() => {
+                  dispatch(movieDetailAction.setShow(true));
+                }}
+              />)}
             </div>
           </div>
+
+          {!!model && !isClosed && (
+            <CheckOutModal detailData={movieDetails} isCheckout={isCheckout} SetIsCheckout={SetIsCheckout} SetIsSuccess={SetIsSuccess}></CheckOutModal>
+          )}
+          {!!isShowPay && (
+            <NotifyModal isSuccess={true} SetIsSuccess={SetIsSuccess} />
+          )}
         </Wrapper >
       )}
     </>

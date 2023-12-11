@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700');
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,500,700");
 
 .no-gutters {
   padding-left: 0;
@@ -15,7 +15,6 @@
   height: 430px;
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
 }
-
 
 .item-container .item-image img {
   height: 430px;
@@ -54,6 +53,7 @@
 }
 
 .checkout-container {
+  height: 400px;
   padding: 35px 25px;
 }
 
@@ -98,22 +98,22 @@
 }
 
 /* Removes form Controls  */
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
-input[type=month]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    display: none;
+input[type="month"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
 }
 
-input[type=month]::-webkit-calendar-picker-indicator {
-    -webkit-appearance: none;
-    display: none;
+input[type="month"]::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  display: none;
 }
 
 .checkout-btn {
@@ -133,12 +133,12 @@ input[type=month]::-webkit-calendar-picker-indicator {
 }
 
 #checkout-form .modal-content {
-    background-color: unset !important;
-    display: flex;
-    align-items: center;
+  background-color: unset !important;
+  display: flex;
+  align-items: center;
 }
 
 #checkout-form .btn-close {
   top: 5px;
-  right: 15px
+  right: 15px;
 }

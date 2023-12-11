@@ -8,6 +8,7 @@ export interface MediaState {
 export interface MovieDetailState {
   isShow: boolean;
   isShowPay: Boolean;
+  isClosed: Boolean;
   movieDetail: MediaItemType;
   actors: Array<ActorModel>
 }
