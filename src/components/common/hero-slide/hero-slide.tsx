@@ -56,17 +56,11 @@ function HeroSlide() {
                   </div>
                   <div className="movie-infos top-down delay-4">
                     <div className="movie-info">
-                      <MovieStar star={item.vote} />
+                      <MovieStar star={item.vote_average} />
                     </div>
-                    {/* <div className="movie-info">
+                    <div className="movie-info">
                       <i className="bx bx-time"></i>
                       <span>{item.release_date}</span>
-                    </div> */}
-                    <div className="movie-info">
-                      {/* <span>{{ item.quality }}</span> */}
-                    </div>
-                    <div className="movie-info">
-                      {/* <span>{{ item.ageAccepted }}</span> */}
                     </div>
                   </div>
                   <div className="item-content-description top-down delay-6">

@@ -12,8 +12,7 @@ function Header() {
         <div className="container">
           <div className="nav">
             <Link to="/" className="logo">
-              <i className="bx bxl-github bx-tada main-color"></i>M
-              <span className="main-color">e</span>o
+              <span className="main-color">Movie</span>
             </Link>
             <div className="nav-menu" id="nav-menu">
               <Button variant="outline-danger mt-2 mb-2 fs-6 rounded-pill text-light-emphasis" onClick={() => setIsSearch(true)}>

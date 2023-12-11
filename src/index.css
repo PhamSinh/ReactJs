@@ -334,8 +334,9 @@ a.movie-item:hover {
 } */
 
 /* End Pricing Section */
-
-
+.btn:hover{
+  background-color: unset;
+}
 
 
 
