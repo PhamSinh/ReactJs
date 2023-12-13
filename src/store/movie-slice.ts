@@ -21,6 +21,7 @@ const movieSlice = createSlice({
     },
     setFilterMovies: (state, action) => {
       const { star, year, type } = action.payload;
+
       let result: MediaItemType[] = [...state.movieList];
       if (star) result = result.filter(movie => +movie.vote_average.toFixed(0) == Number(star));
       if (year) result = result.filter(movie => Number(movie.release_date.slice(0, 4)) == Number(year));

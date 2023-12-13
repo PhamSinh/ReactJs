@@ -1,8 +1,8 @@
 // sagaLogger.js
 import { takeEvery, select } from 'redux-saga/effects';
-
-function* logAction(action) {
-  const state = yield select();
+import { RootState } from '../store';
+function* logAction(action: { type: any; payload: any; }) {
+  const state: RootState = yield select();
 
   console.log({
     Action: action.type,

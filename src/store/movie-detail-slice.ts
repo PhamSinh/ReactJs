@@ -3,12 +3,14 @@ import { MovieDetailState } from "../services/MediaType.model";
 
 const initialMovieDetailState: MovieDetailState = {
   isShow: false,
+  isShowPay: false,
+  isClosed: false,
+  vote: 0,
   movieDetail: {
-    id: "",
+    id: 0,
     title: "",
     release_date: "",
-    poster: "",
-    video: "",
+    video: false,
     vote: 0,
     overview: "",
     isTrending: false,

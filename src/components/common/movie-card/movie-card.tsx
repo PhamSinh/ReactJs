@@ -218,9 +218,9 @@ const MovieCard: React.FC<TileProps> = ({
           </Tags>
         }
         {genresList &&
-          <Tags oversize >
-            {genresList.map((item, index) => (
-              <Tag oversize key={genresList[index].id}>
+          <Tags >
+            {genresList.map((_item, index) => (
+              <Tag key={genresList[index].id}>
                 {genresList[index]?.name}
               </Tag>
             ))}

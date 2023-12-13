@@ -25,12 +25,11 @@ const NotifyModal: React.FC<NotifyModalProps> = ({
     };
   });
   let { isShowPay } = useSelector((store: RootState) => store.detail);
-  console.log(isShowPay);
 
   return (
     <>
       <Modal
-        show={isSuccess && isShowPay}
+        show={!!(isSuccess && isShowPay)}
         onHide={() => {
           SetIsSuccess(false);
         }}

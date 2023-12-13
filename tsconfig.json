@@ -25,7 +25,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "types": [
+      "node",
+      "jest",
+      "@types/jest"
+    ]
   },
   "include": [
     "src",

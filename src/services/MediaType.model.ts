@@ -9,11 +9,13 @@ export interface MovieDetailState {
   isShow: boolean;
   isShowPay: Boolean;
   isClosed: Boolean;
-  movieDetail: MediaItemType;
+  vote: number;
+  movieDetail: object;
   actors: Array<ActorModel>
 }
 
 export interface MediaItemType {
+  movieInfor: object;
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];

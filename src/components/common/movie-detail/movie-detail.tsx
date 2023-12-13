@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Wrapper } from "../Wrapper";
 import MovieCard from "../movie-card/movie-card";
@@ -26,7 +26,7 @@ export const MovieDetail = () => {
   }, []);
 
   const [isCheckout, SetIsCheckout] = useState(false);
-  const [isSuccess, SetIsSuccess] = useState(false);
+  const [, SetIsSuccess] = useState(false);
 
   const baseUrl = "https://image.tmdb.org/t/p/";
   const posterSizes = [
@@ -80,9 +80,9 @@ export const MovieDetail = () => {
         < Wrapper >
           {/* @ts-ignore */}
           <MovieCard
-            oversize="true"
+            oversize={true}
             imageWidth="312px"
-            mobile="177px"
+            mobile={false}
             widths={tileWidths}
             key={id as string}
             sizes={posterSizesArray}

@@ -1,4 +1,4 @@
-import { applyMiddleware, configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import movieSlice from "./movie-slice";
 import movieDetailSlice from "./movie-detail-slice";
 import paymentSlice from "./payment-slice";

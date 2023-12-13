@@ -9,7 +9,8 @@ import { movieAction } from "../../store/movie-slice";
 const ListMovie = () => {
   const [filter, setFilter] = useState({
     star: "",
-    year: ""
+    year: "",
+    type: ""
   });
   const [listMovie, setListMovie] = useState<MediaItemType[]>([]);
   const movieState = useSelector((state: RootState) => state.movies.filterMovies);
@@ -78,7 +79,7 @@ const ListMovie = () => {
               </span>
             </div>
             <select className="form-select form-select-sm bg-dark text-light border-danger border-start-0 rounded-end"
-              value={filter.year} onChange={(e) => handleFilter(e, "type")}>
+              value={filter.type} onChange={(e) => handleFilter(e, "type")}>
               <option value="">All Type</option>
               <option value="28">Action</option>
               <option value="35">Comedy</option>
