@@ -3,7 +3,7 @@ import "./movie-list.scss";
 import Section from "../../common/Section";
 import MovieCard from "../movie-card/movie-card";
 import { MovieResult } from "./interfaces";
-import { API_TOTAL_PAGES_LIMIT, MOVIES_LIST_URL, MOVIE_DETAILS_URL } from "./constants";
+import { MOVIE_DETAILS_URL } from "./constants";
 
 interface MovieListProps {
   movieList: Array<MediaItemType>;

@@ -1,9 +1,8 @@
 import { Card } from "react-bootstrap";
 import "./checkout-modal.scss";
-import { RootState } from "../../../store";
 import MovieStar from "../../common/movie-star/movie-star";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { movieDetailAction } from '../../../store/movie-detail-slice';
 
 interface CheckOutModalProps {

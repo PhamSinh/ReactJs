@@ -11,7 +11,7 @@ import NotifyModal from '../../components/common/notify-modal/notify-modal';
 const DetailScreen = () => {
     const { id } = useParams();
     const [movieInfor, SetMovieInfor] = useState<MediaItemType>();
-    const [isCheckout, SetIsCheckout] = useState(false);
+    const [, SetIsCheckout] = useState(false);
     const [isSuccess, SetIsSuccess] = useState(false);
 
     useEffect(() => {

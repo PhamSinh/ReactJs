@@ -78,7 +78,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isSearch, setIsSearch }) => {
               {searchResult.length == 0 ? "No results found" :
                 searchResult.map(item => (
                   <li key={item.id}>
-                    <div className="search-result-item" onClick={() => clickItemHandle(item.id)}>
+                    <div className="search-result-item" onClick={() => clickItemHandle(String(item.id))}>
                       <div className="search-result-item-icon">
                         <i className="bx bx-movie-play bx-tada fs-2"></i>
                       </div>

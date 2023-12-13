@@ -22,12 +22,12 @@ interface TileProps {
   oversizepersontile?: boolean;
   detailsUrl: string;
   imageBaseUrl?: string;
-  widths?: string;
+  widths?: Array<any>;
   imageWidth?: string;
-  sizes?: string;
+  sizes?: Array<any>;
   imagePath?: string;
   title: string;
-  subtitle?: string;
+  subtitle?: string | number;
   countries?: { name: string }[];
   releaseDate?: string;
   birthday?: string;
