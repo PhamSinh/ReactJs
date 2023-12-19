@@ -1,0 +1,39 @@
+.btn {
+  color: #ffffff;
+  padding: 0.25rem 1.5rem;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+
+  &-hover::before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--main-color);
+    transition: 0.3s ease-in-out;
+  }
+
+  &:hover::before {
+    width: 100%;
+    color: #ffffff !important;
+  }
+
+  i,
+  span {
+    z-index: 1;
+  }
+
+  i {
+    margin-right: 1rem;
+  }
+}
+.movie-button{
+  width: 220px;
+}

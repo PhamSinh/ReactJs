@@ -1,0 +1,60 @@
+// Footer.scss
+
+.movie-footer {
+  background-color: #222;
+  color: #fff;
+  padding: 30px 0;
+}
+
+.footer-content {
+  max-width: 1600px;
+  padding: 0 40px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-column {
+  flex: 1;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.column-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.footer-links,
+.social-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li,
+.social-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a,
+.social-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  display: block;
+}
+
+.footer-links a:hover,
+.social-link:hover {
+  color: #d91a2a;
+}
+
+.copyright {
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
